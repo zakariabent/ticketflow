@@ -1,27 +1,18 @@
+
 server:
-  port: 8080
+  port: 8761
 
 spring:
   application:
-    name: api-gateway
-  cloud:
-    gateway:
-      server:
-        webflux:
-          routes:
-            - id: customer-service
-              uri: http://localhost:8081
-              predicates:
-                - Path=/api/customers/**
-              filters:
-                - AddResponseHeader=X-Served-By, api-gateway
+    name: discovery-server
 
-
-management:
-  endpoint:
-    gateway:
-      access: read-only
-  endpoints:
-    web:
-      exposure:
-        include: health,info,gateway
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    renewal-percent-threshold: 0.49
