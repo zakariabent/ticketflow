@@ -1,16 +1,14 @@
-# Maven
-target/
-!.mvn/wrapper/maven-wrapper.jar
+# Maven build output
+**/target/
 
-# IntelliJ
+# IntelliJ IDEA
 .idea/
 *.iml
-*.iws
-out/
 
-# OS
-.DS_Store
+# Eclipse
+.classpath
+.project
+.settings/
 
-# Logs & env
-*.log
-.env
+# VS Code
+.vscode/
